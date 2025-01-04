@@ -1,0 +1,1 @@
+///////Prime palllindrome armstrong
