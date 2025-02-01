@@ -1,7 +1,5 @@
 //36.8 
-//Memoisation
-// Time Complexity: O(n^2)
-
+//Tabulation
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -18,33 +16,25 @@ using namespace std;
 
 const int N = 1e5+2, MOD = 1e9+7;
 
-int dp[N];
-
-int lis(vi &a, int n){
-    if(dp[n] != -1){
-        return dp[n];
-    }
-    dp[n] = 1;// because single element is also an lis
-    for(int i = 0; i<n; i++){
-        if(a[n] > a[i]){
-            dp[n] = max(dp[n], 1+lis(a, i));
-        }
-    }
-    return dp[n];  
-}
 
 int main(){
-
-    rep(i, 0, N){
-        dp[i] = -1;
-    }   
-    int n;
-    cin>> n;
+    int n; cin>>n;
     vi a(n);
     rep(i, 0, n){
-        cin>> a[i];
+        cin>>a[i];
     }
-    cout<<lis(a, n-1)<<endl;
+    vi dp(n, 1);
+    int ans = 0;
+    rep(i, 1, n){
+        rep(j, 0, i){
+            if(a[i]> a[j]){
+                dp[i] =  max(dp[i], dp[j]+ 1);
+            }
+        }
+        ans = max(ans , dp[i]);
+
+    }
+    cout<<ans<<endl;
 
     return 0;
 }
