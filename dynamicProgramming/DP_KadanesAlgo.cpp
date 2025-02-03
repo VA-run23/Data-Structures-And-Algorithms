@@ -1,4 +1,4 @@
-//35.10
+//35.5
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -13,35 +13,29 @@ using namespace std;
 #define setBits(x) __builtin_popcount(x)//counts the number of set bits (1s) in the binary representation of x
 
 
-const int N = 102, MOD = 1e9+7;
-int a[N];
-int dp[N][N];
-
-int mcm(int i , int j){
-    if( i ==  j){
-        return 0 ;
-    }
-    if(dp[i][j] != -1){
-        return dp[i][j];
-    }
-    dp[i][j] = MOD;
-    for(int  k  = i; k<j; k++){
-        dp[i][j] =  min(dp[i][j], mcm(i, k)+ mcm(k+1, j) + a[i-1]*a[k]*a[j]);
-    }
-    return dp[i][j];
-
-}
+const int N = 1e5+2, MOD = 1e9+7;
 
 
 int main(){
     int n; cin>>n;
+    vi a(n); 
     rep(i, 0, n){
         cin>>a[i];
     }
-    memset(dp, -1, sizeof dp);
 
-    cout<<mcm(1, n-1)<<endl;
-
-
+    int curr =0, maxTillNow = 0;
+    rep(i, 0, n){
+        curr += a[i];
+        maxTillNow = max(curr, maxTillNow);
+        if(curr < 0){
+            curr = 0;
+        }
+    }
+    cout<<maxTillNow<<endl;
     return 0;
 }
+// //Input
+// 8 
+// -5 -1 5 -3 -1 2 3 -6
+// // Output
+// 6

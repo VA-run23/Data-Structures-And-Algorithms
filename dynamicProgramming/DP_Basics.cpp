@@ -46,16 +46,28 @@ using a table to store intermediate results.
 */
 
 
-void* memset(void* ptr, int value, size_t num);
+// void* memset(void* ptr, int value, size_t num);
 
-ptr: Pointer to the block of memory to fill.
-value: The value to be set. This value is passed as an int, but the function fills the memory block with its unsigned char conversion.
-num: Number of bytes to be set to the value.
-
-
+// ptr: Pointer to the block of memory to fill.
+// value: The value to be set. This value is passed as an int, but the function fills the memory block with its unsigned char conversion.
+// num: Number of bytes to be set to the value.
 
 
 
+
+////Tabulation vs Memoization
+/*
+Memoization is a top-down, recursive approach that stores subproblem results to avoid redundant calculations. 
+Tabulation is a bottom-up, iterative approach that builds solutions systematically using stored results. 
+Both techniques aim to optimize computation by handling overlapping subproblems efficiently.
+*/
+
+/*
+Tabulation is systematic memoization. 
+While memoization is top-down and recursive, 
+tabulation is bottom-up and iterative, 
+both aim to optimize computation by storing subproblem results.
+*/
 
 
 
@@ -63,13 +75,13 @@ num: Number of bytes to be set to the value.
 
 ////SUMMARY
 
-Method	Time Complexity
-Recursive Approach (without memoization)------------------------O(2^n)
-Iterative Approach (using loops)--------------------------------O(n)
-Dynamic Programming (iterative with memoization)----------------O(n * m)
+// Method	Time Complexity
+// Recursive Approach (without memoization)------------------------O(2^n)
+// Iterative Approach (using loops)--------------------------------O(n)
+// Dynamic Programming (iterative with memoization)----------------O(n * m)
 
 
-//PIONTS to remember
-Recursive Approach (without memoization): Exponential time complexity due to redundant computations.
-Iterative Approach (using loops): Linear time complexity, efficient for problems like the Fibonacci sequence.
-Dynamic Programming (iterative with memoization): Polynomial time complexity, optimal performance by storing subproblem results.
+// //PIONTS to remember
+// Recursive Approach (without memoization): Exponential time complexity due to redundant computations.
+// Iterative Approach (using loops): Linear time complexity, efficient for problems like the Fibonacci sequence.
+// Dynamic Programming (iterative with memoization): Polynomial time complexity, optimal performance by storing subproblem results.
