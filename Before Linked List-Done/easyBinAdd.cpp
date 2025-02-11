@@ -8,7 +8,7 @@ int addBinary(int a, int b) {
     while (a > 0 || b > 0 || carry > 0) {
         int sum = (a % 10) + (b % 10) + carry;
         carry = sum / 2;
-        ans += (sum % 2) * place;
+        ans += (sum % 2) * place;//ans = ans + (sum % 2) *place;
         place *= 10;
         a /= 10;
         b /= 10;
@@ -22,3 +22,8 @@ int main() {
     cout << addBinary(a, b) << endl;
     return 0;
 }
+// // Input[Binary input only]
+// 11
+// 1011
+// //Output
+// 1110

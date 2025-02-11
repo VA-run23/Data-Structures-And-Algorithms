@@ -1,6 +1,7 @@
 //Done 
 //Refer easyBinAdd.cpp 
 //the overall time complexity  ( O(n) ).
+//Fixed a minor problem in addingBinaryFinallyFixed.cpp
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -103,3 +104,11 @@ int main(){
 // 11011
 ////Output getting is: 1001
 ////Actual output should be: 100100
+
+//Update: 11-02-2025
+/* 
+The output 1001 instead of 100100 is due to the fact that initially the ans has a value of 0, so 
+ans = ans * 10 + prevCarry; is producing an ans of 0 only for the first two steps, but they are 
+not getting added up and just remain as 0 only, not 00 (as we are calculating in reverse order).
+Further, it is giving ans of 10 instead of 001. 
+*/
