@@ -16,7 +16,7 @@ int main() {
     }
 
     const int N = 100000;//N = 1e6 + 2; as this consumes a lot of memory
-///if value greater than N is give for array element , it gives error
+///if value greater than N is given for array element , it gives error
     int idx[N];
     for (int i = 0; i < N; i++) {
         idx[i] = -1;
