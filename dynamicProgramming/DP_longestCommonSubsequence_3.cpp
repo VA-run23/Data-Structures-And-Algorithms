@@ -18,7 +18,7 @@ using namespace std;
 const int N = 1e3+2, MOD = 1e9+7;
 int main(){
     string s1, s2;
-    cin>.s1>>s2;
+    cin>>s1>>s2;
     int n = s1.size(), m = s2.size();
     vvi dp(n+1, vi(m+1, 0));//n is number of rows and m is number of columns
 

@@ -7,7 +7,9 @@
 using namespace std;
 
 int main(){
-    string str="ieDweDGteGEvGegeOhaSFSfgsUff";
+    // string str="ieDweDGteGEvGegeOhaSFSfgsUff";
+    string str;
+    cin>>str;
 
     //converting to uppercase
     for(int i=0; str[i]!='\0'; i++){
@@ -32,3 +34,8 @@ int main(){
 
 return 0;
 }
+// //Input
+// asdfgasdfasda
+// //Output
+// ASDFGASDFASDA
+// asdfgasdfasda

@@ -9,7 +9,17 @@ bool sorted(int arr[], int n){
     }
     bool restArray=sorted(arr+1, n-1);///arr+1 points to next element of the array
     return (arr[0]<arr[1] && restArray);
-}
+    /*
+    return (arr[0] < arr[1] && restArray);
+    // If arr[0] < arr[1], the function proceeds to check the rest of the array (restArray).
+    // restArray represents the result of the recursive call for the remaining elements.
+    // The && (logical AND) operator ensures both conditions must be true for the entire expression to be true.
+    // If arr[0] is not less than arr[1], the expression arr[0] < arr[1] evaluates to false.
+    // As a result, the entire expression evaluates to false, indicating the array is not sorted.
+    // If any value fails the condition of arr[0] < arr[1], false is returned, 
+    // and the && operator continues to propagate the false result through the recursive calls.
+    */
+    }
 int main(){
     int arr[7]={1,2,0,4,5,24,4234};
     int arr1[7]={1,2,3,4,5,6,7};

@@ -1,6 +1,6 @@
 //Done
 ////Since each function performs a constant number of operations, the time complexity for each function is (O(1)).
-
+///NOTE:The positions in the bit manipulation functions (getBit, setBit, clearBit, and updateBit) are 0-based. This means that the least significant bit (LSB) is at position 0.
 // The main function calls each of these functions a fixed number of times, so the overall time complexity of the program is also (O(1)).
 #include <iostream>
 #include <string>
