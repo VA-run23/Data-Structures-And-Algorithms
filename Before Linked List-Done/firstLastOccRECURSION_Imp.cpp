@@ -1,6 +1,6 @@
 //DOne
 //TC : O(n)
-//First and last occurance of a character/int
+//First and last occurance of a character/int through recursion
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -19,7 +19,7 @@ int lastOcc(int arr[], int n, int i, int key){////first checking for i+1 then ca
     }
     int restArray= lastOcc(arr, n , i+1, key );//first calling function with i+1 then checking  for arr[i]==key
     if(restArray!=-1){
-        return restArray;
+        return restArray;//NOTE !
     }
     if(arr[i]==key){
         return i;
@@ -32,8 +32,17 @@ int main(){
     cout<<lastOcc(arr,9,0, 2)<<endl;
 return 0;
 }
+// //Output
+// 1
+// 8
+
 
 ///Recursion Flow
 // The function keeps calling itself with the next index until it reaches the end of the array.
 // Once it reaches the end, it starts returning back up the call stack, checking each element from the end towards the beginning.
 // This way, it effectively finds the last occurrence of the key in the array.
+
+/*
+if once -1 is returned it will be propagated to all recursive calls .
+But if in between it finds the key, it will propagate the required index.
+*/

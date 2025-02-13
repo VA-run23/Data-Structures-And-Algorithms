@@ -10,7 +10,7 @@ void primeSeive(int n) {
     for (int i = 2; i <= n/2; i++) {//this code benefits much as bth 2 and 3 are  prime numbers
         if (prime[i] == 0) {
             for (int j = i * i; j <= n; j += i) {//marking multiples of the prime as not prime
-                prime[j] = 1;////the point is here: j += i 
+                prime[j] = 1;////NOTE:The main point is here: j += i 
             }
         }
     }

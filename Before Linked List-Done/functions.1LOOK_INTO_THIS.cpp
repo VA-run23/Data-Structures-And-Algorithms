@@ -12,6 +12,7 @@ int binaryToDecimal(int n){
     }
     return ans;
 }
+
 int octalToDecimal(int n){
     int ans=0;
     int x=1;
@@ -23,8 +24,8 @@ int octalToDecimal(int n){
     }
     return ans;//returning decimal value 
 }
-int hexadecimaltoDecimal (string n){
 
+int hexadecimaltoDecimal (string n){
     int ans=0;
     int x=1;
     int s=n.size();
@@ -41,36 +42,38 @@ int hexadecimaltoDecimal (string n){
 
 int decimalToBinary(int n){
 
-int x=1;
-int ans=0;
-while(x<=n)
-    x*=2;
-x/=2;
-
-while(x>0){
-    int lastDigit=n/x;
-    n-=lastDigit*x;
+    int x=1;
+    int ans=0;
+    while(x<=n){
+        x*=2;
+    }
     x/=2;
-    ans=ans*10+lastDigit;
+
+    while(x>0){
+        int lastDigit=n/x;
+        n-=lastDigit*x;
+        x/=2;
+        ans=ans*10+lastDigit;
+    }
+    return ans;
 }
-return ans;
-}
+
 int decimalToOctal(int n){
+    int x=1;
+    int ans=0;
+    while(x<=n)
+        x*=8;
+    x/=8;
 
-int x=1;
-int ans=0;
-while(x<=n)
-    x*=8;
-x/=8;
+    while(x>0){
+        int lastDigit=n/x;
+        n-=lastDigit*x;
+        x/=8 ;
+        ans=ans*10+lastDigit;
+    }
+    return ans;
+}
 
-while(x>0){
-    int lastDigit=n/x;
-    n-=lastDigit*x;
-    x/=8 ;
-    ans=ans*10+lastDigit;
-}
-return ans;
-}
 string decimalToHexadecimal(int n){
     int x=1;
     string ans= "";
@@ -88,28 +91,34 @@ string decimalToHexadecimal(int n){
             ans.push_back(c);
         }
     }
-return ans;
+    return ans;
 }
 
 
-
-
-
-int main(){
+int main() {
     int n;
-    cin>>n;
-    cout<<binaryToDecimal(n)<<endl;
-    // cout<<octalToDecimal(n)<<endl;//taking input n in octal
-    // string n;
-    // cin>>n;
-    // cout<<hexadecimaltoDecimal(n)<<endl;
+    cin >> n;
 
-    // cout<<decimalToBinary(n)<<endl;
-    // cout<<decimalToOctal(n)<<endl;
+    string n_hex;
+    cin >> n_hex;
 
-    // cout<<decimalToHexadecimal(n); 
+    cout << "Binary to Decimal: " << binaryToDecimal(n) << endl;
+    cout << "Octal to Decimal: " << octalToDecimal(n) << endl;
+    cout << "Hexadecimal to Decimal: " << hexadecimaltoDecimal(n_hex) << endl;
+
+    cout << "Decimal to Binary: " << decimalToBinary(n) << endl;
+    cout << "Decimal to Octal: " << decimalToOctal(n) << endl;
+    cout << "Decimal to Hexadecimal: " << decimalToHexadecimal(n) << endl;
 
     return 0;
-
-return 0;
 }
+// //Input
+// 1000
+// AA6
+// //Output
+// Binary to Decimal: 8
+// Octal to Decimal: 512
+// Hexadecimal to Decimal: 2726
+// Decimal to Binary: 1111101000
+// Decimal to Octal: 1750
+// Decimal to Hexadecimal: 3E8
