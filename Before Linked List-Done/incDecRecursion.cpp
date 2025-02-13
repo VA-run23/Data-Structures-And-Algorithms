@@ -1,5 +1,8 @@
 //Done
 //TC : O(n)
+//Just printing incresing and decresing order of N number through recursion
+//Same line of code just differ in recursive call makes a whole different order
+
 #include <bits/stdc++.h>
 using namespace std;
 

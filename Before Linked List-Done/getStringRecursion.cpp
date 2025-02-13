@@ -19,3 +19,13 @@ int main(){
     subStr(s, "");
     return 0;
 }
+// //OUTPUT
+//THE OUTPUT DOESNOT GIVE BINARY REP, IT is for reference that how output is generated
+// (empty string) 00000000
+// C              00000001
+// B              00000010
+// BC             00000011
+// A              00000100
+// AC             00000101
+// AB             00000110
+// ABC            00000111

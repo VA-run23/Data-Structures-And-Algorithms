@@ -18,6 +18,11 @@ int main(){
     cout<<divisible(a,b,c);
 return 0;
 }
+// //INPUT
+// 7 2 3 
+// //OUTPUT
+// 4
+
 // suppose if a is 7 and b is 2 and c is 3 and
 // 7/2 = 3, this  means that there are 3 numbers upto 7 which are divisible by 2, similarly ,  
 // 7/3 = 2, this means that there are 2 numbers upto 7 which are divisible by 3, similarly,

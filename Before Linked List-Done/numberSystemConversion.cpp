@@ -1,5 +1,7 @@
+//DONE
 #include<bits/stdc++.h>
 using namespace std;
+//Detailed explanation at last
 
 int binaryToDecimal(int n){
     int ans=0;
@@ -122,3 +124,68 @@ int main() {
 // Decimal to Binary: 1111101000
 // Decimal to Octal: 1750
 // Decimal to Hexadecimal: 3E8
+
+
+
+/*
+Step-by-Step Explanation
+Initial Setup:
+n = 20
+x = 1
+ans = 0
+
+Finding the Highest Power of 2 Less Than or Equal to 20:
+while (x <= n) {
+    x *= 2;
+}
+x /= 2;
+
+Iteration 1: x = 1 (Initially)
+Iteration 2: x = 2 (1 * 2)
+Iteration 3: x = 4 (2 * 2)
+Iteration 4: x = 8 (4 * 2)
+Iteration 5: x = 16 (8 * 2)
+Iteration 6: x = 32 (16 * 2, now x > 20, so exit loop)
+After exiting the loop, x /= 2 results in x = 16.
+
+Converting to Binary:
+while (x > 0) {
+    int lastDigit = n / x;
+    n -= lastDigit * x;
+    x /= 2;
+    ans = ans * 10 + lastDigit;
+}
+
+Iteration 1:
+lastDigit = 20 / 16 = 1
+n = 20 - 1 * 16 = 4
+x = 16 / 2 = 8
+ans = 0 * 10 + 1 = 1
+
+Iteration 2:
+lastDigit = 4 / 8 = 0
+n = 4
+x = 8 / 2 = 4
+ans = 1 * 10 + 0 = 10
+
+Iteration 3:
+lastDigit = 4 / 4 = 1
+n = 4 - 1 * 4 = 0
+x = 4 / 2 = 2
+ans = 10 * 10 + 1 = 101
+
+Iteration 4:
+lastDigit = 0 / 2 = 0
+n = 0
+x = 2 / 2 = 1
+ans = 101 * 10 + 0 = 1010
+
+Iteration 5:
+lastDigit = 0 / 1 = 0
+n = 0
+x = 1 / 2 = 0
+ans = 1010 * 10 + 0 = 10100
+
+Final Result:
+The binary representation of 20 is 10100.
+*/
