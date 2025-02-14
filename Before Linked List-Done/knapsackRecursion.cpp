@@ -1,5 +1,5 @@
 //Done
-//TC : O(n)
+//TC : O(2^n)
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -24,4 +24,6 @@ int main(){
     cout<<knapsack(value,wt, 3,W)<<endl;
     return 0;
 }
+// //OUTPUT:
+// 250
 //This program puts restriction of W on wt to get maximum value

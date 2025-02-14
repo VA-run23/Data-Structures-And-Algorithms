@@ -7,7 +7,7 @@ using namespace std;
 
 int main(){
     int n;
-    cout<<"Enter the number of days";
+    cout<<"Enter the number of days"<<endl;
     cin>>n;
     int a[n+1];
     cout<<"Enter the number of visitors for respective days: "<<endl;
@@ -27,6 +27,21 @@ int main(){
         }
         mx=max(mx,a[i]);
     }
-    cout<<ans<<endl;
+    cout<<"Number of record breaking days is: "<<ans<<endl;
     return 0;
 }
+// //INPUT
+// 7
+// 2
+// 4//Record
+// 2
+// 3
+// 5//Record
+// 4
+// 6//Record
+
+// // //OUTPUT
+// Enter the number of days
+// Enter the number of visitors for respective days: 
+// Number of record breaking days is: 3
+

@@ -15,18 +15,23 @@ int main() {
     }
 
     // Insertion sort algorithm
+    //Sorted part : 0 to i-1
     for(int i = 1; i < n; i++) {
         int current = arr[i]; // The current element to be inserted
-        int j = i - 1; // The index of the last element of the sorted part of the array
+        int prev = i - 1; // The index of the last element of the sorted part of the array, that is previous of the current element
 
+        // This loop shifts elements to create space for the current element
         // Shift elements of the sorted part to the right to create space for the current element
-        while (arr[j] > current && j >= 0) {
-            arr[j + 1] = arr[j];
-            j--;
+        while (arr[prev] > current && prev >= 0) {
+            // If the current element is less than the compared element in the sorted part,
+            // shift the compared element to the right until the correct position is found
+            arr[prev + 1] = arr[prev];
+            prev--;
         }
 
-        // Insert the current element into the correct position
-        arr[j + 1] = current;
+// Place the current element in its correct position
+arr[prev + 1] = current;
+
     }
 
     // Output the sorted array
