@@ -1,5 +1,12 @@
-
 //Done
+/*
+The function isPowerOf2 checks if a given number is a power of 2.
+
+Key points:
+- A power of 2 has exactly one bit set to 1 in its binary representation.
+- When subtracting 1 from a power of 2, all bits to the right of the most significant bit (MSB) turn to 1.
+- Performing a bitwise AND operation between the number and the result of (number - 1) should yield 0 if the number is a power of 2.
+*/
 //TC : O(1)
 #include<iostream>
 #include<string>

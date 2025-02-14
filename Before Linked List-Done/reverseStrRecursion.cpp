@@ -20,3 +20,5 @@ int main() {
     reverse("Hello_Binod"); // Call the reverse function with the input string
     return 0;
 }
+//OUTPUT:
+// doniB_olleH

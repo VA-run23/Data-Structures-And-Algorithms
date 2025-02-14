@@ -1,17 +1,25 @@
 ////8.5
-//Done
+///MODIFIED: to find the smallest missing number from the smallest number available
 //TC : O(n + N), but N>n, so TC:O(N)
 //for this the values must be greater than 0 and need not to be sorted as we use check array
 //this can be used in inventory management systems to identify the smallest missing product ID or in database applications where you need to find the smallest missing unique identifier.
-#include<iostream>
+//
+//
+// 
+
+#include <bits/stdc++.h>
 using namespace std;
 
 int main(){
     int n;
     cin>>n; 
     int a[n];
+    int minVal= INT_MAX;
     for (int i = 0; i < n; i++) {
         cin >> a[i];
+        if (a[i] < minVal) {
+            minVal = a[i]; 
+        }
     }
    
     const int N = 1e6;
@@ -27,7 +35,7 @@ int main(){
     
     int ans=-1;
 
-    for(int i=1; i<N; i++){
+    for(int i=minVal; i<N; i++){
         if(check[i]==0){
             ans=i;
             break;
@@ -37,12 +45,8 @@ int main(){
 return 0;
 }
 }
-//INPUT:
-// 5
-// 1
-// 2
-// 45
+// //INPUT:
+// 4 5 5 8 9
+
+// //OUTPUT
 // 6
-// 7
-//OUTPUT:
-// 3

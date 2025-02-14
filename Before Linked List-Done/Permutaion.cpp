@@ -23,9 +23,10 @@
         int n; 
         cin >> n;
         vector<int> a(n);
-        for (auto& i : a) {//auto& , the '&' with auto is used to store the elements to the address of vector a, not a copy of the vector a element
+        for (auto& i : a) { // Using '&' with 'auto' to reference elements of vector 'a' directly, avoiding copies
             cin >> i;
         }
+        
         permute(a, 0); // Call the permute function to generate permutations.
         for (auto v : ans) {
             for (auto i : v)
