@@ -85,3 +85,16 @@ both aim to optimize computation by storing subproblem results.
 // Recursive Approach (without memoization): Exponential time complexity due to redundant computations.
 // Iterative Approach (using loops): Linear time complexity, efficient for problems like the Fibonacci sequence.
 // Dynamic Programming (iterative with memoization): Polynomial time complexity, optimal performance by storing subproblem results.
+
+
+
+
+In cases where only one of the properties (overlapping subproblems or optimal substructure) is satisfied, the problem may still be solvable using different techniques, but dynamic programming may not be the most efficient approach. Let's break down what happens when one property is missing:
+
+Overlapping Subproblems Not Satisfied
+If a problem does not have overlapping subproblems, then each subproblem is independent, and there is no need to recompute the same subproblem multiple times. In this case, dynamic programming would not provide any advantage, and a direct recursive or divide-and-conquer approach would be more appropriate. An example is the merge sort algorithm, which does not benefit from memoization since each subproblem is unique and does not overlap with others.
+
+Optimal Substructure Not Satisfied
+If a problem does not exhibit optimal substructure, the optimal solution to the entire problem cannot be constructed from the optimal solutions to its subproblems. This means that even if you solve smaller subproblems optimally, it does not guarantee an optimal solution for the original problem. In such cases, techniques like greedy algorithms or heuristics might be more suitable. An example is the traveling salesman problem, where local optimal choices do not necessarily lead to a global optimum.
+
+In summary, when one of these properties is not satisfied, alternative problem-solving techniques like greedy algorithms, divide-and-conquer, or heuristics may be more appropriate. Each problem requires careful analysis to determine the most effective approach. If you have a specific problem in mind, feel free to share it, and I can help you explore suitable techniques!

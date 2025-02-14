@@ -1,4 +1,5 @@
 //Done
+//NOTWE: The merging process in merge sort happens through recurring comparisons.
 //TC : O(nlogn)
 
 // Dividing array takes O(log n) time since the array is repeatedly split in half.
@@ -9,6 +10,7 @@ using namespace std;
 
 // Function to merge two sorted subarrays
 void merge(int arr[], int l, int mid, int r) {
+    //The merging process in merge sort happens through recurring comparisons.
     int n1 = mid - l + 1; // Size of the first subarray
     int n2 = r - mid;     // Size of the second subarray
 
@@ -78,4 +80,14 @@ int main() {
 // Merge:    [4, 5] [3] and [2, 3] [1]
 // Merge:    [3, 4, 5] and [1, 2, 3]
 // Merge:    [1, 2, 3, 3, 4, 5]
+
+//Detailed explantaion:
+// Original: [5, 7, 6, 2, 3, 1]
+// Split:    [5, 7, 6] and [2, 3, 1]
+// Split:    [5, 7] and [6] and [2, 3] and [1]
+// Split:    [5] [7] [6] [2] [3] [1]
+// Merge:    [5, 7] and [6] -> [5, 6, 7] // This happens at the previous recursive call where [5] and [7] are merged into [5, 7], then [5, 7] and [6] are merged into [5, 6, 7]
+// Merge:    [2, 3] and [1] -> [1, 2, 3] // This happens at the previous recursive call where [2] and [3] are merged into [2, 3], then [2, 3] and [1] are merged into [1, 2, 3]
+// Merge:    [5, 6, 7] and [1, 2, 3] -> [1, 2, 3, 5, 6, 7] // This happens at the first recursive call where [5, 6, 7] and [1, 2, 3] are merged into [1, 2, 3, 5, 6, 7]
+
 

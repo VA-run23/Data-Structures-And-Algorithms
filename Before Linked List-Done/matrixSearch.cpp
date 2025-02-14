@@ -1,4 +1,4 @@
-//searching in sorted matrix matrix 
+//searching in sorted matrix
 ////Done
 //TC : O(m+n)
 #include<iostream>
@@ -37,5 +37,8 @@ return 0;
 // 3   
 // 3
 // 1
-//  1 2 3 4 5 6 7 8 9  
+// 1  2  3
+// 4  5  6
+// 7  8  9
+
 // Element found
