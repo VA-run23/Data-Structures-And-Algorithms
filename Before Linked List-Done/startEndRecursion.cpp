@@ -13,7 +13,7 @@ int countPath(int s, int e){
     }
     int count=0;
     for(int i=1; i<=6; i++){
-    count+=countPath(s+i, e);
+    count+=countPath(s+i, e);//count from base case is added to count total upto the required value
     }
     return count;
 }
