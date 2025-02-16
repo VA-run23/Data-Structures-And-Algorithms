@@ -2,7 +2,7 @@
 //TC: O(n)
 #include <bits/stdc++.h>
 using namespace std;
-
+ 
 // Function to calculate the number of ways to tile a 2 x n grid
 int tilingWays(int n, vector<int> &dp) {
     if (n == 0 || n == 1) {
