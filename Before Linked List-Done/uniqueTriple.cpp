@@ -1,3 +1,6 @@
+//Done
+///NOTE: We are creating the number by comparing with their setbits
+// TC: O(n)
 #include <iostream>
 #include <string>
 using namespace std;

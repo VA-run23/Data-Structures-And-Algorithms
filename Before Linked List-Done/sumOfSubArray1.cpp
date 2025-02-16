@@ -1,5 +1,7 @@
+//DONE
 ////8.5
-////Output is 1 based index
+//TC: O(n)
+///NOTE: Output is 1 based index
 #include <iostream>
 #include <climits>
 using namespace std;
@@ -59,3 +61,19 @@ int main()
     return 0;
 }
 //Returns -1 -1 for an impossible value
+
+// //INPUT:
+// 7
+// 1 2 3 4 5 6 7 
+// 35
+// //OUTPUT
+// -1 -1
+
+// ///INPUT:
+// 7
+// // 1 2 3 4 5 6 7 
+// 25
+
+// //OUTPUT:
+// 3 7
+//Which means from index 3 to 7 , the sum of elements in the array make 25

@@ -1,3 +1,4 @@
+//DONE
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -18,16 +19,25 @@ int main(){
     keypad("235", "");
     return 0;
 }
-// ////Output if only 23 is input
-// ad
-// ae
-// af
-// bd
-// be
-// bf
-// cd
-// ce
-// cf
+/*
+////Output if only 23 is input
+Here's how the recursive calls and combinations look in the call stack:
+
+keypad("23", "")
+keypad("3", "a")
+    keypad("", "ad") -> print ad
+    keypad("", "ae") -> print ae
+    keypad("", "af") -> print af
+keypad("3", "b")
+    keypad("", "bd") -> print bd
+    keypad("", "be") -> print be
+    keypad("", "bf") -> print bf
+keypad("3", "c")
+    keypad("", "cd") -> print cd
+    keypad("", "ce") -> print ce
+    keypad("", "cf") -> print cf
+*/
+
 
 // ////Output if  235 is input
 // adj

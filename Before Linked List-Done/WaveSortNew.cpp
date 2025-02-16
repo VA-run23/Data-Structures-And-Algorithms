@@ -1,6 +1,8 @@
 //Done
 //TC : O(n)
-//Output is in the form of cos wave
+//Output is in the form of cos wave. 
+//High-low-high-low-.......
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -34,5 +36,6 @@ int main(){
 }
 ////Output
 //// 3 1 7 4 6 2 5 
+//High-low-high-low-.......
 // zero based index
 // elements at odd index must be less than the value of the elements at even index
