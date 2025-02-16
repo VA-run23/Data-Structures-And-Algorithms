@@ -1,5 +1,5 @@
 ////8.6
-/////my approach having errors,having time complexity O(n^2)
+////Time complexity O(n^2)
 
 #include<iostream>
 #include<climits>

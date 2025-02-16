@@ -16,6 +16,10 @@ int main(){
 
     for(int i = 1; i < n; i++){
         currMax = max(a[i], currMax + a[i]);
+        // Update currMax to be the maximum of the current element a[i]  and the sum of currMax + a[i].
+        // If adding a[i] to the current sum (currMax) results in a larger sum,
+        // then we include a[i] in the current subarray.
+        // Otherwise, we start a new subarray from the current element a[i].
         if(currMax > globalMax){
             globalMax = currMax;
         }
