@@ -6,7 +6,7 @@ string keypadArr[]={"","./", "abc", "def", "ghi","jkl", "mno", "pqrs", "tuv","wx
 void keypad(string s, string ans){
     if(s.length()==0){
         cout<<ans<<endl;
-        return;
+        return; 
     }
     char ch=s[0];
     string code=keypadArr[ch-'0'];//when ch = 2, it converts character '2' into integer 2, and keypadArr[2] is abc

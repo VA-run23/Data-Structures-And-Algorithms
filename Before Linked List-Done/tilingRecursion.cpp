@@ -10,7 +10,7 @@
         }
         return tilingWays(n-1)+tilingWays(n-2);
     }
-    int main(){
+    int main(){ 
         int n;
         cin>>n;
         cout<<tilingWays(n)<<endl;
