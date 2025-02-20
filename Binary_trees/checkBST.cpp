@@ -18,29 +18,38 @@ struct Node{
 };
 
 //check for BST
-bool isBST(Node* root, Node* min, Node* max){//min and max are of node pointer type so that we can pass the node(root) itself in next levels
-
-    if(root == NULL){
-        return true;
+bool isBST(Node* root, Node* min, Node* max) {
+    if (root == NULL) {
+        return true; // An empty tree is a BST
     }
 
-    if(min != NULL && root->data <= min->data){
+    // Ensure current node's value is greater than the min value (parent node of the left subtree)
+    // Since min is not NULL, it means it has a lower boundary that the current node must be greater than.
+    if (min != NULL && root->data <= min->data) {
         return false;
     }
-    if(max != NULL && root->data >= max->data){
+
+    // Ensure current node's value is smaller than the max value (parent node of the right subtree)
+    // Since max is not NULL, it means it has an upper boundary that the current node must be less than.
+    if (max != NULL && root->data >= max->data) {
         return false;
     }
 
-    bool leftValid = isBST(root->left, min, root);//passing parameters to set boundaries for the left subtree and right subtree
-    bool rightValid = isBST(root->right ,  root, max);//
+    // Recursively check the left and right subtrees within updated boundaries
+    bool leftValid = isBST(root->left, min, root); // Passing parameters to set boundaries for the left subtree
+    bool rightValid = isBST(root->right, root, max); // Passing parameters to set boundaries for the right subtree
+
+    // Both left and right subtrees must be valid BSTs
     return leftValid && rightValid;
 }
+
+
 
 int main (){
     Node* root = new Node(5);
     root->left = new Node(2);
     root->right  = new Node(6);
-    if(isBST(root, NULL, NULL)){
+    if(isBST(root, NULL, NULL)){//When we pass NULL as an argument to the isBST function, it means those pointers are explicitly set to NULL. In the context of our function, this indicates the absence of any boundary constraints for the respective parameters.
         cout<<"Valid BST"<<endl;
     }else{
         cout<<"Invalid BST"<<endl;

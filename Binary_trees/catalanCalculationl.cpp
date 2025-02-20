@@ -34,6 +34,7 @@ int main() {
         cout << catalan(i) << " ";
     }
     cout << endl;
-
     return 0;
 }
+//OUTPUT:
+// 1 1 2 5 14 42 132 429 1430 4862 

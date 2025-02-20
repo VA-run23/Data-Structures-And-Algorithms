@@ -31,6 +31,13 @@ int calcDiaOptimized(Node* root, int* height){
     *height = max(lh, rh) + 1; // *height is updated to the maximum height of the left and right subtrees plus 1
     // *height acts as *lh and *rh in the recursive calls, storing the height of the current subtree
     return max(currDiameter, max(lDia, rDia));
+    /*
+    This line returns the maximum diameter of the current subtree:
+    - `currDiameter` is the sum of the heights of the left and right subtrees plus one.
+    - `lDia` and `rDia` are the diameters of the left and right subtrees.
+    - The `max` function ensures the largest diameter found in the subtree is returned.
+    - This recursive comparison helps calculate the diameter of the entire tree.
+    */
 }
 
 int main(){

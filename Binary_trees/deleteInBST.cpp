@@ -110,6 +110,13 @@ int main()
     root->right->left = new Node(5);
     root->right->right = new Node(7);
 
+    struct Node *root1 = new Node(16);
+    root1->left = new Node(10);
+    root1->left->right = new Node(14);
+
+    bool temp = false;
+    if(deleteInBST(root1, 16)) cout<<"VALUE DELETED"<<endl;
+
     if (searchInBST(root, 5) == NULL)
     {
         cout << "Key does not exist" << endl;
@@ -187,3 +194,10 @@ Deleting in-order successor:
         \
          20
 */
+
+
+// 16
+// /
+// 10
+//  \ 
+//  14
