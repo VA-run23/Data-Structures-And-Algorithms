@@ -40,7 +40,7 @@ Node *searchInBST(Node *root, int key)
 //This is why we often look at the right subtree of the current node to find the inorder successor.
 // If the current node has a right child, the inorder successor is the leftmost node in the right subtree.
 // If the current node does not have a right child, we look at its ancestors to find the smallest value greater than the current node's value.
-Node *inorderSucc(Node *root)//as we have passed inorderSucc(root->right) in the deleteInBST function, so it will always return the leftmost value of the right subtree of the current node
+Node *inorderSucc(Node *root){//as we have passed inorderSucc(root->right) in the deleteInBST function, so it will always return the leftmost value of the right subtree of the current node
     Node *curr = root;//since we are passing the right child of the current node, we are storing the right child in curr
 
     while (curr && curr->left != NULL)//curr && is because it checks if the current node is not null(that is initial root->right)
@@ -77,13 +77,14 @@ Node *deleteInBST(Node *root, int key)
         }
 
         // If the node has both left and right children, find the inorder successor (smallest value in the right subtree)
-        // The inorder successor of a node in a Binary Search Tree(BST) is the node with the smallest value
-        // that is greater than the current node 's value. This is why we often look at the right subtree of
-        // the current node to find the inorder successor. If the current node has a right child, the inorder successor is the leftmost node in the right subtree.
+        // The inorder successor of a node in a Binary Search Tree(BST) is the node with the smallest value that is greater than the current node 's value. 
+        //This is why we often look at the right subtree of the current node to find the inorder successor. 
+        //If the current node has a right child, the inorder successor is the leftmost node in the right subtree.
         // If the current node does not have a right child, we look at its ancestors to find the smallest value greater than the current node' s value.
-        Node *temp = inorderSucc(root->right);//inorder successor of the current node is always in the right subtree
-        root->data = temp->data;
-        root->right = deleteInBST(root->right, temp->data);
+        Node *temp = inorderSucc(root->right); // Find the in-order successor of the current node, which is the smallest node in the right subtree
+        root->data = temp->data; // Replace the data of the current node with the in-order successor's data
+        root->right = deleteInBST(root->right, temp->data); // Delete the in-order successor node from the right subtree
+        
     }
     return root;
 }
@@ -148,3 +149,41 @@ int main()
 // 1 2 3 4 6 7
 // BST after deleting
 // 1 3 4 6 7
+
+//////////////////////////
+/*
+Summary:
+1. Find the in-order successor (smallest value in the right subtree).
+2. Replace the data of the current node with the data of the in-order successor.
+3. Delete the in-order successor from the right subtree.
+
+This method maintains the properties of the BST and ensures that the tree remains balanced after deleting a node with two children. Here is a simple illustration of the steps:
+
+Original Tree:
+    10
+   /  \
+  5   15
+      / \
+     12  20
+
+After finding in-order successor (12):
+    10
+   /  \
+  5   15
+      / \
+     12  20
+
+Replacing data:
+    12
+   /  \
+  5   15
+      / \
+     X   20  (X denotes the original position of 12)
+
+Deleting in-order successor:
+    12
+   /  \
+  5   15
+        \
+         20
+*/

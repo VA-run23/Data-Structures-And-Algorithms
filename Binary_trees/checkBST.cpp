@@ -72,77 +72,91 @@ int main (){
 // Valid BST
 // Invalid BST
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// if a left child has two nodes then: bool leftValid = isBST(root->left, min, root);: min remains Null and root will be the current node; similarly for bool rightValid = isBST(root->right , root, max); : root is the current node and max will be Null ritght?
-//  // Yes, you're mostly correct. Let's break it down with an example to clarify the details for both the left and right subtrees, particularly focusing on the values of `min` and `max`.
+// if a left child has two nodes then: bool leftValid = isBST(root->left, min, root);: min remains Null and root will be the current node;
+// similarly for bool rightValid = isBST(root->right , root, max); : root is the current node and max will be Null, right?
+// Yes, you're mostly correct. Let's break it down with an example to clarify the details for both the left and right subtrees, particularly focusing on the values of `min` and `max`.
 
-// ## #Left Subtree : For the left child :
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Left Subtree: For the left child:
 
-// ```cpp bool leftValid = isBST(root->left, min, root);
-// // Here, min remains NULL, and root is the current node.
-// ```
-// - `min` remains `NULL` because there's no lower boundary constraint for the left subtree.
-// - `root` becomes the `max` boundary for the left subtree.
+/*
+bool leftValid = isBST(root->left, min, root);
+// Here, min remains NULL, and root is the current node.
+*/
+// min remains NULL because there's no lower boundary constraint for the left subtree.
+// root becomes the max boundary for the left subtree.
 
-// ### Example:
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Example:
 // Consider the subtree rooted at node with value 5, having a left child 2 with two children:
-// ```
+
 //       5
 //      / 
 //     2   
 //    / \
 //   1   3
-// ```
 
-// - When calling `isBST` for node 2:
-//   ```cpp
-//   isBST(root->left, NULL, 5); // min = NULL, max = 5
-//   ```
-//   - For node 2, `min` is `NULL` and `max` is 5.
+// When calling isBST for node 2:
+/*
+isBST(root->left, NULL, 5); // min = NULL, max = 5
+*/
+// For node 2, min is NULL and max is 5.
 
-// - Further calls for node 2:
-//   - Left child (1):
-//     ```cpp
-//     isBST(node2->left, NULL, node2); // min = NULL, max = 2
-//   ``` - For node 1, `min` is `NULL` and `max` is 2. - Right child(3) :
-//     ```cpp
-//                                                                        isBST(node2->right, node2, 5); // min = 2, max = 5
-//   ``` - For node 3, `min` is 2 and `max` is 5.
+// Further calls for node 2:
+// Left child (1):
+/*
+isBST(node2->left, NULL, node2); // min = NULL, max = 2
+*/
+// For node 1, min is NULL and max is 2.
+// Right child (3):
+/*
+isBST(node2->right, node2, 5); // min = 2, max = 5
+*/
+// For node 3, min is 2 and max is 5.
 
-//                     ## #Right Subtree : For the right child :
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Right Subtree: For the right child:
 
-// ```cpp bool rightValid = isBST(root->right, root, max);
-//   // Here, root is the current node, and max remains NULL.
-// ```
-// - `root` becomes the `min` boundary for the right subtree.
-// - `max` remains `NULL` because there's no upper boundary constraint for the right subtree.
+/*
+bool rightValid = isBST(root->right, root, max);
+// Here, root is the current node, and max remains NULL.
+*/
+// root becomes the min boundary for the right subtree.
+// max remains NULL because there's no upper boundary constraint for the right subtree.
 
-// ### Example:
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Example:
 // Consider the subtree rooted at node with value 5, having a right child 6 with two children:
-// ```
+
 //     5
 //      \
 //       6
 //      / \
 //     4   7
-// ```
 
-// - When calling `isBST` for node 6:
-//   ```cpp
-//   isBST(root->right, 5, NULL); // min = 5, max = NULL
-//   ```
-//   - For node 6, `min` is 5 and `max` is `NULL`.
+// When calling isBST for node 6:
+/*
+isBST(root->right, 5, NULL); // min = 5, max = NULL
+*/
+// For node 6, min is 5 and max is NULL.
 
-// - Further calls for node 6:
-//   - Left child (4):
-//     ```cpp
-//     isBST(node6->left, 5, node6); // min = 5, max = 6
-//   ``` - For node 4, `min` is 5 and `max` is 6. - Right child(7) :
-//     ```cpp
-//                                                                   isBST(node6->right, node6, NULL); // min = 6, max = NULL
-//   ``` - For node 7, `min` is 6 and `max` is `NULL`.
+// Further calls for node 6:
+// Left child (4):
+/*
+isBST(node6->left, 5, node6); // min = 5, max = 6
+*/
+// For node 4, min is 5 and max is 6.
+// Right child (7):
+/*
+isBST(node6->right, node6, NULL); // min = 6, max = NULL
+*/
+// For node 7, min is 6 and max is NULL.
 
-//                                        ## #Summary -
-//                                        For the **left subtree **, `min` remains `NULL` and `root` (current node)becomes the `max`.- For the **right subtree **, `root` (current node)becomes the `min` and `max` remains `NULL`.
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Summary:
+// For the left subtree, min remains NULL and root (current node) becomes the max.
+// For the right subtree, root (current node) becomes the min and max remains NULL.
 
-//                                                                                                                                                                 Your understanding is accurate,
-//       and these boundary constraints ensure that each node adheres to the Binary Search Tree(BST) properties.Nice work !
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Your understanding is accurate, and these boundary constraints ensure that each node adheres to the Binary Search Tree (BST) properties. Nice work!
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////

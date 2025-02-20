@@ -1,5 +1,7 @@
 //Done
 //For a given array and an integet K, check if any subarray[Not subsequence] of size K exists in the array such that elements in the subbarray form a number divisible by 3 (K)
+//THis stores only the last subaaray whose sum is divisible by 3
+
 #include <bits/stdc++.h>
 using namespace std;
 

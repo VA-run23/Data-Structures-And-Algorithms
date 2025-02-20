@@ -1,6 +1,8 @@
 //Done
 //TC : O(nlogn) for average case,
 //TC : O(n^2), for worst case
+
+//We are placing pivot to its correct position
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -13,15 +15,16 @@ void swap(int arr[], int i, int j){
 
 int partition(int arr[], int l, int r){
     int pivot=arr[r];
-    int i=l-1;
-    for(int j=l; j<r; j++){
+    int i=l-1;//initially i has the value of index behind the starting point of the array
+    for(int j=l; j<r; j++){//r is n-1, and we are looping till r-1, as pivot element is at index r
         if(arr[j]<pivot){
-            i++;
+            i++;//now arr[i] denotes least number less than pivot
             swap(arr, i,j);
         }
     }
-    swap(arr, i+1, r);
-    return i+1;
+    //By the end of this loop all the element till i are less than pivot and all the element after i are greater than pivot, so swap arr[i+1] with pivot
+    swap(arr, i+1, r);//since i will be pointing the number less than pivot, but all the numbers after index i are greater than pivot 
+    return i+1;//so the new pivot element's inces is i+1 which is returned back to quicksort
 }
 
 void quickSort(int arr[], int l, int r){
