@@ -21,10 +21,18 @@ int findPeakElement(int arr[], int low, int high, int n) {
     else {
         return findPeakElement(arr, mid + 1, high, n);
     }
+    ///NOTE: don't know why just changing call with mid+1 and mid-1 is giving different answer
+    // else if(mid > 0 && arr[mid - 1] > arr[mid]) {
+    //     return findPeakElement(arr, low, mid + 1, n);
+    // }
+    // // Otherwise, there is a potential peak on the right side
+    // else {
+    //     return findPeakElement(arr, mid - 1, high, n);
+    // }
 }
 
 int main() {
-    int arr[] = {0, 6, 8, 5, 89, 9};
+    int arr[] = {0, 10, 8, 8, 89, 9};
     int n = 6;
     cout << "Peak element index: " << findPeakElement(arr, 0, n - 1, n) << endl;
 

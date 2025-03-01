@@ -7,6 +7,7 @@
 using namespace std;
 
 bool isPossible(int arr[], int n, int m, int min) { // 'min' is the maximum number of pages a student can be allocated
+    //n is number of books and m is number of students
     int studentsReq = 1, sum = 0;
     for(int i = 0; i < n; i++) {
         if(arr[i] > min) {
@@ -26,7 +27,7 @@ bool isPossible(int arr[], int n, int m, int min) { // 'min' is the maximum numb
 }
 
 
-int void allocateMinimumPages(int arr[], int n, int m){
+int allocateMinimumPages(int arr[], int n, int m){
     int sum = 0;
     if(n < m){
         return -1;//no appropriate solution
@@ -36,7 +37,7 @@ int void allocateMinimumPages(int arr[], int n, int m){
     }
     int start = 0, end = sum, ans = INT_MAX;//we are finding the minmum value of ans
     while(start <= end){
-        int mid = (start + mid)/2;
+        int mid = (start + end)/2;
         if(isPossible(arr, n,m, mid)){
             ans = min(ans, mid);
             end = mid - 1;
