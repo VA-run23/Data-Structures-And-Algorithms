@@ -20,6 +20,7 @@ int main(){
     s.erase(s.find(3));
     //The find function returns an iterator pointing to the element 3.
     //The erase function then takes this iterator and removes the element 3 from the container.
+    ///THIS: is to perform single deletion instead of all occurances
     for(auto i : s)
         cout << i << " ";
         cout<<endl;

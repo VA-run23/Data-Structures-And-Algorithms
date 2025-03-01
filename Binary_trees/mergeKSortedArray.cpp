@@ -26,6 +26,12 @@ int main(){
 
     vector<int> idx(k, 0);//vector idx with k elements all initialized to 0
     priority_queue<pii, vector<pii>, greater<pii>> pq;//declares a priority queue of pairs of integers, using a vector as the underlying container, and ordering the elements such that the smallest pair is at the top (min-heap).
+   ///SYNTAX: priority_queue< Type, Container, Compare > pq;
+   /*
+    The priority queue (pq) will typically have the same number of elements as the number of arrays (k) at any given time, with a maximum of k elements. 
+    As you extract the smallest element from the pq and add it to the result list, you push the next element from the same array into the pq. 
+    This ensures that the pq always contains one element from each array, maintaining a maximum of k elements in the pq.
+    */
 
     rep(i, 0, k){
         pq.push(make_pair(a[i][0], i));//The loop initializes the min-heap priority queue pq with pairs of the first element from each of the k lists in array a and their respective list indices.
@@ -34,7 +40,7 @@ int main(){
     vi ans;//ans is a vector that will hold the final merged sorted list.
 
 while(!pq.empty()) {
-    pii x = pq.top(); //since the top element of the priority queue is the smallest element, we pop it and store it in x.
+    pii x = pq.top(); //since the top element of the priority queue is the smallest element, we store it in x and then pop it.
     pq.pop();
     ans.push_back(x.ff); // Add the smallest element to the result list.
 
