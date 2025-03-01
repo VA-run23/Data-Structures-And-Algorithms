@@ -1,4 +1,4 @@
-//Done
+//LEARN AGAIN
 //29.1
 //Binary search challenge
 //Given is an array with n elements that represents n positions along a straight line. Find K elements such that the minimum distance between any 2 elements is the maximum possible
@@ -7,19 +7,30 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool isFeasible(int mid, int arr[], int n, int k ){
-    int pos = arr[0], elements = 1;//explain this line
-    for(int i=1; i<n; i++){
-        if(arr[i]-pos >= mid){//checking if the distance between the two elements is greater than the mid
-            pos = arr[i];
-            elements++;
-            if(elements == k){
+bool isFeasible(int mid, int arr[], int n, int k) {
+    int pos = arr[0], elements = 1;
+    
+    // Initialize pos to the first element of the array arr. 
+    // Here, pos represents the position of the last placed element (in this context, it starts with the first element of the array).
+
+
+    for (int i = 1; i < n; i++) {
+        // Checking if the distance between the current element and the last placed element is greater than or equal to mid
+        if (arr[i] - pos >= mid) {
+            pos = arr[i]; // Update the position to the current element
+            elements++; // Increment the count of placed elements
+
+            // If we have placed k elements, return true
+            if (elements == k) {
                 return true;
             }
         }
     }
+
+    // If we cannot place k elements with at least mid distance, return false
     return false;
 }
+
 
 int largestMinDist(int arr[], int n , int k){//n is length of array, k is the minimum numbers required
     sort(arr, arr+n);
@@ -29,6 +40,7 @@ int largestMinDist(int arr[], int n , int k){//n is length of array, k is the mi
 //   |               |
 //   v               v
 //  [3, 1, 4, 1, 5, 9]
+////THIS: is same as sort(arr.begin(), arr.end());
 
     int result = -1, left = 1, right = arr[n-1];//basically left and right are the indexes to calculate the mid
 

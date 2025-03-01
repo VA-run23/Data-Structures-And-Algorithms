@@ -1,4 +1,4 @@
-//Learn this
+///REVIEW: from here
 
 //Time complexity:
 #include <bits/stdc++.h>
@@ -46,7 +46,7 @@ Info largestBSTinBT(Node* root){
         curr.isBST = true;
         return curr;
     }
-    curr.ans = max(leftInfo.ans, rightInfo.ans);
+    curr.ans = max(leftInfo.ans, rightInfo.ans);//if the current node is not forming BST then we will take the max of left and right subtree
     curr.isBST = false;
     return curr;
 }

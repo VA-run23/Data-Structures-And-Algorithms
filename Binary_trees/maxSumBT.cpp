@@ -18,24 +18,40 @@ struct Node
 };
 
 
-int maxPathSumUtil(Node* root, int &ans){
-    if(root== NULL){
+int maxPathSumUtil(Node* root, int &ans) {
+    if (root == NULL) {
         return 0;
     }
-    int left= maxPathSumUtil(root->left, ans);//stroring the left path sum at each level(as in case of recursion)
-    int right= maxPathSumUtil(root->right, ans);//similarly storing the right path sum at each level(as in case of recursion)
-    int nodeMax= max(max(root->data, root->data+ left+ right), 
-                    max(root->data+ left, root->data+ right));////hame aise path include karna hai jaha ancestors include ho sake
-    // There can be four cases for the maximum path:(The above line manages to choose the maximum of these four cases)
-    // The value of the current node by itself.
-    // The value of the current node with both left and right subtrees.
-    // The value of the current node with the left subtree.
-    // The value of the current node with the right subtree.
 
-    ans= max(ans, nodeMax);
-    int singlePathSUm= max(root->data, max(root->data + left , root->data + right));//here we are include the sum which gives maximum of current node with its left or right child
-    return singlePathSUm;//this is returned to the parent node(like value 7 is returned from node with value 2 to root node)
+    int left = maxPathSumUtil(root->left, ans);
+    int right = maxPathSumUtil(root->right, ans);
+
+    // Calculate the maximum sum for the current node including its left and right children
+    // There can be four cases for the maximum path:
+    // 1. The value of the current node by itself.
+    // 2. The value of the current node with both left and right subtrees.
+    // 3. The value of the current node with the left subtree.
+    // 4. The value of the current node with the right subtree.
+    int nodeMax = max(max(root->data, root->data + left + right), 
+                      max(root->data + left, root->data + right));
+    
+    // nodeMax is used to determine the maximum path sum including the current node 
+    // and its potential connections to both subtrees.
+
+    ans = max(ans, nodeMax);
+
+    // Calculate the maximum sum path considering the current node and one of its subtrees
+    // This is the value that will be returned to the parent node, ensuring that only one subtree is included in the path
+    int singlePathSum = max(root->data, max(root->data + left, root->data + right));
+
+    // singlePathSum is used to ensure that the maximum path sum passed to the parent node 
+    // includes the current node and only one of its subtrees, thereby preventing cycles 
+    // and maintaining the tree structure.
+
+    return singlePathSum; // this is returned to the parent node (like value 7 is returned from node with value 2 to root node)
 }
+
+
 
 int maxPathSum(Node* root){
     int ans= INT_MIN;
