@@ -2,6 +2,9 @@
 //34.6
 //Limitations at last
 //If you can get the topological sort of a graph , then it is a cyclic graph
+//Topological sort is only possible in a DAG(Directed Acyclic Graph)
+//Topological sort is a linear ordering of vertices such that for every directed edge u->v, vertex u comes before v in the ordering
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -21,27 +24,33 @@ int main(){
         indeg[v]++;//
     }
     queue<int> pq;
-    for(int i = 0; i< n; i++){
+    for(int i = 0; i< n; i++){//Pushing the nodes with indegree 0 into the queue
         if(indeg[i] == 0){
             pq.push(i);
         }
     }
     while(!pq.empty()){
-        cnt++;
+        cnt++;//what is the use of counting here?
+        //
         int x = pq.front();
         pq.pop();
         cout<<x<<" ";
-        //x --> v;
-        for(auto i : adj[x]){//adj[x] is representing a vector(not x) consisting of number of indegree to x
-            indeg[i]--;//If any node other than the leaf nodes have child node, subtract 1 in degree and then check whether if it can become a leaf node now, else move further
-            if(indeg[i] ==0)    
-                pq.push(i);
+        //x --> v;//here x is same as u
+        for(auto i : adj[x]) { // adj[x] represents a vector (list) containing the nodes that are adjacent to the node x.
+                        // These are the nodes that x points to in a directed graph.
+                        // The loop iterates through each of these adjacent nodes (children of x), represented as i.
+            indeg[i]--;        // If any node other than the leaf nodes has a child node, subtract 1 from its in-degree.
+                        // This checks if the child can now become a leaf node (i.e., its in-degree becomes 0).
+            if(indeg[i] == 0)  // If the in-degree of the child node becomes 0, it means it is ready to be processed,
+                        // as it is no longer dependent on any other node.
+            pq.push(i);    // Push this newly independent node (now a leaf node) into the priority queue for further processing.
         }
+
     }
     return 0;
 }
 // //Input
-// 4 3
+// 4 3//Number of nodes and edges
 // 0 1 
 // 1 2 
 // 2 3
@@ -62,7 +71,7 @@ int main(){
 
 ////////Next input
 // Representation of the above graph
-// 3 3
+// 3 3///Number of nodes and edges
 // 0 1 
 // 1 2 
 // 2 0
@@ -74,7 +83,7 @@ int main(){
 //     2______|
 
 ////Output
-//(EMPTY)
+//(EMPTY)//Because the graph is cyclic.
 
 
 
@@ -103,7 +112,11 @@ int main(){
 
 
 //NOTE THIS
-// is this input correct: 4 3 7 8 8 3 3 5
+// is this input correct: 
+// 4 3 //4 nodes and 3 edges
+// 7 8
+// 8 3 
+// 3 5
 // No, the input is not correct. The first value, 4, indicates that there are 4 nodes, but the edges provided (7 8, 8 3, 3 5) involve nodes numbered 7 and above. This conflicts with the number of nodes specified.
 
 // Correct Input Structure:
