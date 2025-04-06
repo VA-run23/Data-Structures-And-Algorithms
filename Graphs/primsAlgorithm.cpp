@@ -70,18 +70,15 @@ using namespace std;
     adjM -> vector<pii> adjM[N]: Stores adjacency lists for each vertex, where each pair <int, int>
             contains a neighboring vertex and edge weight.
     cost -> int: Keeps track of the total cost of the Minimum Spanning Tree (MST).
-*/
 
-// Vectors
-/*
+
+ Vectors
     dist -> vector<int>: Stores the shortest known distance from the MST to each vertex.
                       Initially set to INF.
     parent -> vector<int>: Tracks the parent node from which each vertex was reached in the MST.
     vis -> vector<bool>: Boolean vector that marks visited nodes during MST construction.
-*/
 
-// Inside primsMST() Function
-/*
+Inside primsMST() Function
     s -> set<vector<int>>: A set that stores {weight, vertex} pairs and helps efficiently pick the minimum weight edge.
     x -> vector<int>: Extracted from s, contains {weight, vertex} of the minimum edge.
     u -> int: Stores the current vertex being processed.
@@ -89,10 +86,8 @@ using namespace std;
     w -> int: Stores the edge weight of u.
     it.first -> int: Represents a neighboring node (adjacent to x[1]).
     it.second -> int: Represents the edge weight between u and it.first.
-*/
 
-// Inside main() Function
-/*
+Inside main() Function
     u, v, w -> int: Stores input values representing an edge between nodes u and v with weight w.
 */
 
