@@ -1,6 +1,9 @@
 //DOne
 //TC : O(n)
 //First and last occurance of a character/int through recursion
+///NOTE:
+// The first occurrence is found by checking the current index first and then moving to the next index.
+// The last occurrence is found until the recursive call reached the base case and then checks the current index.
 
 #include <bits/stdc++.h>
 using namespace std;

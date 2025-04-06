@@ -1,3 +1,4 @@
+///THIS: code is a C++ implementation of a recursive algorithm to count the number of paths in a maze from the top-left corner to the bottom-right corner.
 //Done
 /* Time Complexity for Original Version:
        countPathMaze: The time complexity is O(2^(2n)) in the worst case because every cell can lead to two recursive calls, leading to an exponential growth in the number of calls.

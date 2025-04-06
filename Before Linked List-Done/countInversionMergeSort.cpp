@@ -28,6 +28,8 @@ long long merge(int arr[], int l, int mid, int r){//assuming that both half of t
         }else{ // a[i]>b[j]
             arr[k]=b[j];
             inv+=n1-i;//important part of the program
+            //When merging two sorted halves, if an element from the right half (b[j]) is smaller than an element from the left half (a[i]),
+            //it means that all the remaining elements in the left half (a[i], a[i+1], ..., a[n1-1]) are greater than b[j], which contributes to the inversion count.
             k++; j++;
         }
     }while(i<n1){//transferring remaining elements of a[i] 

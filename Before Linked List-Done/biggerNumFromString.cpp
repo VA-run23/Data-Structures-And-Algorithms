@@ -1,6 +1,6 @@
 //done
 //This program sorts the characters in the given string in descending order and then prints the sorted string
-//TC : (O(n \log n))
+//TC : (O(n logn))
 #include<algorithm>//TO USE sort function
 #include<iostream>
 

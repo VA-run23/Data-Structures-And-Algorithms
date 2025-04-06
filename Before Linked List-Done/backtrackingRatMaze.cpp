@@ -41,24 +41,24 @@ bool ratInMaze(int** arr, int x, int y, int n, int** solArr){
         solArr[x][y] = 1; // Mark the cell as part of the solution path
         return true; // Solution found
     }
-// Check if the current position is safe to move to
-if (isSafe(arr, x, y, n)) {
-    solArr[x][y] = 1; // Mark the cell as part of the solution path
+    // Check if the current position is safe to move to
+    if (isSafe(arr, x, y, n)) {
+        solArr[x][y] = 1; // Mark the cell as part of the solution path
 
-    // Try moving DOWN (increasing x)
-    if (ratInMaze(arr, x + 1, y, n, solArr)) {
-        return true; // Solution found by moving DOWN
+        // Try moving DOWN (increasing x)
+        if (ratInMaze(arr, x + 1, y, n, solArr)) {
+            return true; // Solution found by moving DOWN
+        }
+
+        // If moving DOWN doesn't give a solution, try moving RIGHT (increasing y)
+        if (ratInMaze(arr, x, y + 1, n, solArr)) {
+            return true; // Solution found by moving RIGHT
+        }
+
+        solArr[x][y] = 0; // Backtracking: Unmark the cell if it's not part of the solution
+        return false; // No solution found from this cell
     }
-
-    // If moving DOWN doesn't give a solution, try moving RIGHT (increasing y)
-    if (ratInMaze(arr, x, y + 1, n, solArr)) {
-        return true; // Solution found by moving RIGHT
-    }
-
-    solArr[x][y] = 0; // Backtracking: Unmark the cell if it's not part of the solution
-    return false; // No solution found from this cell
-}
-return false; // The cell is not safe to move to
+    return false; // The cell is not safe to move to
 }
 
 int main(){

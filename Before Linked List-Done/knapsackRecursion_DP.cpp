@@ -11,15 +11,17 @@ int knapsack(int value[], int wt[], int n, int W, vector<vector<int>> &dp) {
         return dp[n][W];
     }
     if (wt[n - 1] > W) {
-        dp[n][W] = knapsack(value, wt, n - 1, W, dp);
+        //W is always the new current capacity 
+        dp[n][W] = knapsack(value, wt, n - 1, W, dp);//if the weight of the current item > capacity, exclude to add to the knapsack
     } else {
-        dp[n][W] = max(knapsack(value, wt, n - 1, W - wt[n - 1], dp) + value[n - 1], knapsack(value, wt, n - 1, W, dp));
+        dp[n][W] = max( // The function then returns the maximum value of these two scenarios, ensuring the optimal solution.
+                    knapsack(value, wt, n - 1, W - wt[n - 1], dp) + value[n - 1], // Including the current item, adding its value, and reducing the capacity accordingly.
+                    knapsack(value, wt, n - 1, W, dp)// Excluding the current item.
+                );
     }
     return dp[n][W];
-    // This line evaluates two scenarios:
-    // Including the current item, adding its value, and reducing the capacity accordingly.
-    // Excluding the current item.
-    // The function then returns the maximum value of these two scenarios, ensuring the optimal solution.
+ 
+   
 }
 
 int main() {
@@ -33,3 +35,10 @@ int main() {
     return 0;
 }
 // This program puts a restriction of W on wt to get the maximum value
+
+ // Computed DP Table:
+    // Items (n) → / Weights (W) ↓   0   10   20   30   40   50
+    // 0                              0    0    0    0    0    0
+    // 1                              0  100  100  100  100  100
+    // 2                              0  100  100  150  150  150
+    // 3                              0  100  100  150  150  250
