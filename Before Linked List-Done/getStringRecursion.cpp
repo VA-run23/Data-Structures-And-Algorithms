@@ -29,3 +29,21 @@ int main(){
 // AC             00000101
 // AB             00000110
 // ABC            00000111
+
+
+
+// subStr("ABC", "")            → Calls subStr("BC", "")  & subStr("BC", "A")
+//  ├─ subStr("BC", "")         → Calls subStr("C", "")   & subStr("C", "B")
+//  │  ├─ subStr("C", "")       → Calls subStr("", "")    & subStr("", "C")
+//  │  │  ├─ subStr("", "")     → Prints: (empty string)
+//  │  │  ├─ subStr("", "C")    → Prints: C
+//  │  ├─ subStr("C", "B")      → Calls subStr("", "B")   & subStr("", "BC")
+//  │  │  ├─ subStr("", "B")    → Prints: B
+//  │  │  ├─ subStr("", "BC")   → Prints: BC
+//  ├─ subStr("BC", "A")        → Calls subStr("C", "A")  & subStr("C", "AB")
+//  │  ├─ subStr("C", "A")      → Calls subStr("", "A")   & subStr("", "AC")
+//  │  │  ├─ subStr("", "A")    → Prints: A
+//  │  │  ├─ subStr("", "AC")   → Prints: AC
+//  │  ├─ subStr("C", "AB")     → Calls subStr("", "AB")  & subStr("", "ABC")
+//  │  │  ├─ subStr("", "AB")   → Prints: AB
+//  │  │  ├─ subStr("", "ABC")  → Prints: ABC

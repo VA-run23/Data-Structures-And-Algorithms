@@ -1,5 +1,5 @@
 //DONE
-//TC: O(1), Since there are no loops or recursive calls that depend on the size of the input, the overall time complexity remains constant, i.e.,
+//TC: O(1), Since there are no loops or recursive calls that depend on the size of the input, the overall time complexity remains constant
 #include <iostream>
 #include <algorithm> // For std::max
 using namespace std;
